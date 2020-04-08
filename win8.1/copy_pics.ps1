@@ -1,3 +1,16 @@
+# This script takes a source directory as input, where all the image and video
+# files are located (note, subdirectories not yet supported), and copies them to
+# the specified destination folder under subdirectories named 'YYYY-MM-DD', where
+# YYYY, MM, DD are the year, month and the day from the image's date taken, or if
+# date taken is not set, the last modified time.
+
+# For the initial version no proper error handling is added.
+# Good to have features for the future:
+# - Error handling
+# - Support images/videos under subdirectories in the source dirName
+# - Support copying images/videos made within date range
+# - Support folder name template argument
+
 param([Parameter(Mandatory=$true)] $sourcePath, [Parameter(Mandatory=$true)] $destRoot, $folderNameFormat="yyyy-mm-dd")
 
 function getFolderNameFromUnformattedDateTaken($ufdt)
